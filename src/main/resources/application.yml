@@ -1,0 +1,49 @@
+server:
+  port: 8888
+name: abc
+#对象
+persion:
+  name: lisi
+  age: 12
+#  使用${}进行赋值
+persions:
+  name: ${name}
+  age: 123
+#对象行内写法
+persion2: {name: lk,age: 12}
+#数组
+adress:
+  - beijing
+  - shanghai
+#  数组行内写法
+adress1: [bingjing,shanghai]
+#存量
+msg1: 'hello \n world' #不会识别转义字符，会原样输出
+msg2: "hello \n world" #会识别转义字符
+#多配置文件测试通过在yml中声明的方式实现
+#spring:
+#  profiles:
+#    active: dev
+#当yml多文件配置
+---
+server:
+  port: 1111
+spring:
+  profiles:
+    active: dev
+---
+server:
+  port: 3333
+spring:
+  profiles:
+    active: test
+---
+server:
+  port: 2222
+spring:
+  profiles:
+    active: pro
+---
+spring:
+  profiles:
+    active: pro
